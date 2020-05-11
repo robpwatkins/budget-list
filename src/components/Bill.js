@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const Bill = (props) => {
-  
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <div>
       {props.bills.map((bill, index) => {
