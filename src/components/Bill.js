@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Bill = (props) => {
-  console.log(props.bills);
+  
   return (
     <div>
+      {props.bills.map((bill, index) => {
+        return (
+          <div key={index}>
+            <p>{bill}</p>
+          </div>
+        )
+      })}
     </div>
   )
 }

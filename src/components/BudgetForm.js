@@ -5,7 +5,7 @@ const buttonStyle = {
   margin: "15px"
 }
 
-const BudgetForm = () => {
+const BudgetForm = (props) => {
   const [input, setInput] = useState('');
   
   const updateInput = (event) => {
@@ -15,7 +15,7 @@ const BudgetForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setInput(input);
-    console.log(input);
+    props.setBills([ ...props.bills, input])
     setInput('');
   }
 
