@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import DeleteButton from './DeleteButton';
 import Bill from '../components/Bill';
 
 const OverflowGuy = styled.div`
@@ -18,7 +17,7 @@ const Bills = (props) => {
     <OverflowGuy>
       {props.bills.map((bill, index) => {
         return (
-          <Bill bill={bill} key={index} />
+          <Bill bill={bill} index={index} key={index} />
         )
       })}
     </OverflowGuy>

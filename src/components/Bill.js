@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import DeleteButton from '../components/DeleteButton';
 
 const StyledDiv = styled.div`
   display: flex;
   width: 60%;
   justify-content: space-between;
   align-items: center;
+`
+
+const DeleteButton = styled.button`
+  width: 12px;
+  margin: 5px;
+  padding-bottom: 2px;
 `
 
 const Bill = (props) => {
@@ -19,7 +24,9 @@ const Bill = (props) => {
     >
       <p>{props.bill}</p>
       {isHovered && (
-        <DeleteButton />
+        <DeleteButton onClick={() => console.log(props.index)}>
+          x
+        </DeleteButton>
       )}
     </StyledDiv>
   )
