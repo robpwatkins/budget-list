@@ -19,7 +19,7 @@ const OverflowGuy = styled.div`
 `
 
 const App = () => {
-  const [bills, setBills] = useState([]);
+  const [bills, setBills] = useState([22]);
 
   return (
     <div className="App">
