@@ -15,7 +15,7 @@ const BudgetForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setInput(input);
-    props.setBills([ ...props.bills, input])
+    props.setBills([ ...props.bills, Number(input)])
     setInput('');
   }
 
@@ -26,14 +26,14 @@ const BudgetForm = (props) => {
           onChange={updateInput}
           placeholder="put a bill"
           value={input}
-          name="username"
+        name="username"
           >
         </Input>
         <Button 
           type="submit"
           variant="contained"
           style={buttonStyle}
-          >Put!
+          >PUT IT!
         </Button>
       </form>
     </div>
