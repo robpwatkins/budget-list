@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
-import Bill from './components/Bill';
+import Bills from './components/Bills';
 import BudgetForm from './components/BudgetForm';
 import Total from './components/Total';
 
@@ -12,21 +12,13 @@ const StyledDiv = styled.div`
   justify-content: flex-end;
 `
 
-const OverflowGuy = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  overflow: scroll;
-`
-
 const App = () => {
-  const [bills, setBills] = useState([22]);
+  const [bills, setBills] = useState([22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, ]);
 
   return (
     <div className="App">
       <StyledDiv>
-        <OverflowGuy>
-          <Bill bills={bills}/>
-        </OverflowGuy>
+        <Bills bills={bills}/>
         <BudgetForm bills={bills} setBills={setBills}/>
       </StyledDiv>
       <Total bills={bills}/>

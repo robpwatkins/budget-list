@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import DeleteButton from '../components/DeleteButton';
+import DeleteButton from './DeleteButton';
+
+const OverflowGuy = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: scroll;
+`
 
 const StyledDiv = styled.div`
   display: flex;
@@ -15,7 +21,7 @@ const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div>
+    <OverflowGuy>
       {props.bills.map((bill, index) => {
         return (
           <StyledDiv 
@@ -30,7 +36,7 @@ const Bill = (props) => {
           </StyledDiv>
         )
       })}
-    </div>
+    </OverflowGuy>
   )
 }
 
