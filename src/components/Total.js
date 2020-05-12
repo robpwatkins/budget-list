@@ -1,12 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+  display: flex;
+  width: 100%;
+  height: 55px;
+  justify-content: flex-start;
+`;
 
 const Total = (props) => {
   return (
-    <div>
+    <StyledDiv>
       <h3>
         {props.bills.length > 1 && props.bills.reduce((a, b) => a + b)}
       </h3>
-    </div>
+    </StyledDiv>
   )
 }
 

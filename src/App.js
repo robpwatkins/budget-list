@@ -8,20 +8,20 @@ import Total from './components/Total';
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 60vh;
   justify-content: flex-end;
 `
 
 const App = () => {
-  const [bills, setBills] = useState([22]);
+  const [bills, setBills] = useState([]);
 
   return (
     <div className="App">
       <StyledDiv>
-        <Bills bills={bills}/>
-        <BudgetForm bills={bills} setBills={setBills}/>
+        <Bills bills={bills} />
+        <BudgetForm bills={bills} setBills={setBills} />
+        <Total bills={bills} />
       </StyledDiv>
-      <Total bills={bills}/>
     </div>
   );
 }
