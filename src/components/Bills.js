@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import DeleteButton from './DeleteButton';
+import Bill from '../components/Bill';
 
 const OverflowGuy = styled.div`
   display: flex;
@@ -8,36 +9,20 @@ const OverflowGuy = styled.div`
   overflow: scroll;
 `
 
-const StyledDiv = styled.div`
-  display: flex;
-  width: 60%;
-  justify-content: space-between;
-  align-items: center;
-`
 
 
 
-const Bill = (props) => {
-  const [isHovered, setIsHovered] = useState(false);
+const Bills = (props) => {
 
   return (
     <OverflowGuy>
       {props.bills.map((bill, index) => {
         return (
-          <StyledDiv 
-            key={index} 
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <p>{bill}</p>
-            {isHovered && (
-              <DeleteButton />
-            )}
-          </StyledDiv>
+          <Bill bill={bill} key={index} />
         )
       })}
     </OverflowGuy>
   )
 }
 
-export default Bill;
+export default Bills;
