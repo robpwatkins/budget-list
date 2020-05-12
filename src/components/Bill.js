@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -15,17 +15,25 @@ const DeleteButton = styled.button`
 `
 
 const Bill = (props) => {
-  // const [isClicked, setIsClicked] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div>
       {props.bills.map((bill, index) => {
         return (
-          <StyledDiv key={index}>
+          <StyledDiv 
+            key={index} 
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <p>{bill}</p>
-            <DeleteButton onClick={() => {
-              console.log(index);
-            }}>x</DeleteButton>
+            {isHovered &&(
+              <DeleteButton onClick={() => {
+                console.log(index);
+              }}
+                >x
+              </DeleteButton>
+            )}
           </StyledDiv>
         )
       })}
