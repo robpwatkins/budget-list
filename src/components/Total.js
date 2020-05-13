@@ -22,7 +22,7 @@ const Total = (props) => {
 
   return (
     <StyledDiv>
-      <h3>{calculateTotal()}</h3>
+      <h3>{props.bills.length > 1 ? calculateTotal() : 'Total'}</h3>
     </StyledDiv>
   )
 }

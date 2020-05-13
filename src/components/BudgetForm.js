@@ -24,7 +24,7 @@ const BudgetForm = (props) => {
       <form action="" onSubmit={handleSubmit} autoComplete="off">
         <Input
           onChange={updateInput}
-          placeholder="put a bill"
+          placeholder={props.bills.length === 0 ? 'put a bill' : 'put another bill'}
           value={input}
           name="username"
           >
