@@ -11,6 +11,8 @@ const StyledDiv = styled.div`
 
 const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  
   return (
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
