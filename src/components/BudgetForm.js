@@ -21,12 +21,12 @@ const BudgetForm = (props) => {
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit} autoComplete="off">
         <Input
           onChange={updateInput}
           placeholder="put a bill"
           value={input}
-        name="username"
+          name="username"
           >
         </Input>
         <Button 
