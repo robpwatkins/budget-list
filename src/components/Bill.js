@@ -30,6 +30,7 @@ const Bill = (props) => {
       props.setBills([ ...newBills ]);
     }
     setIsClicked(false);
+    setIsHovered(false);
   }
 
   return (
