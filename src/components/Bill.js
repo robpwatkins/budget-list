@@ -36,7 +36,10 @@ const Bill = (props) => {
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsClicked(true)}
+      onClick={() => {
+        setInput(props.bill);
+        setIsClicked(true)
+      }}
     >
       {isClicked ? (
         <form onSubmit={handleSubmit}>
