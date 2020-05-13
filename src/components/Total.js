@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
-  /* height: 55px; */
   justify-content: flex-start;
 `;
 
@@ -21,8 +20,8 @@ const Total = (props) => {
   }
 
   return (
-    <StyledDiv>
-      <h3>{props.bills.length > 1 ? calculateTotal() : 'Total'}</h3>
+    <StyledDiv style={props.bills.length <= 1 ? {opacity: 0} : {}}>
+      <h3>{calculateTotal()}</h3>
     </StyledDiv>
   )
 }
