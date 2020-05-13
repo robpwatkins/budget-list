@@ -27,6 +27,7 @@ const BudgetForm = (props) => {
           placeholder={props.bills.length === 0 ? 'put a bill' : 'put another bill'}
           value={input}
           name="username"
+          autoFocus={true}
           >
         </Input>
         <Button 

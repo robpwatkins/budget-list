@@ -14,17 +14,21 @@ const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [input, setInput] = useState('');
+  const [inputIsChanged, setInputIsChanged] = useState(false);
 
   const updateInput = (event) => {
     setInput(event.target.value);
+    setInputIsChanged(true)
   }
 
   const handleSubmit = event => {
     event.preventDefault();
-    const newBills = props.bills;
-    newBills.splice(props.index, 1);
-    newBills.splice(props.index, 0, Number(input));
-    props.setBills([ ...newBills ]);
+    if (inputIsChanged) {
+      const newBills = props.bills;
+      newBills.splice(props.index, 1);
+      newBills.splice(props.index, 0, Number(input));
+      props.setBills([ ...newBills ]);
+    }
     setIsClicked(false);
   }
 
@@ -41,6 +45,7 @@ const Bill = (props) => {
             placeholder={props.bill.toString()}
             value={input}
             onChange={updateInput}
+            autoFocus={true}
           />
         </form>
         ):(
