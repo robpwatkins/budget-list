@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -8,15 +9,8 @@ const StyledDiv = styled.div`
   align-items: center;
 `
 
-const DeleteButton = styled.div`
-  /* width: 12px; */
-  /* margin: 5px; */
-  /* padding-bottom: 2px; */
-`
-
 const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(true);
-
   return (
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
@@ -24,9 +18,14 @@ const Bill = (props) => {
     >
       <p>{props.bill}</p>
       {isHovered && (
-        <DeleteButton onClick={() => console.log(props.index)}>
-          x
-        </DeleteButton>
+        <ClearIcon 
+          fontSize="small" 
+          onClick={() => {
+            const newBills = props.bills;
+            newBills.splice(props.index, 1);
+            props.setBills([ ...newBills ]);
+          }}
+        />
       )}
     </StyledDiv>
   )

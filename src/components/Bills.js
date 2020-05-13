@@ -8,16 +8,17 @@ const OverflowGuy = styled.div`
   overflow: scroll;
 `
 
-
-
-
 const Bills = (props) => {
-
   return (
     <OverflowGuy>
       {props.bills.map((bill, index) => {
         return (
-          <Bill bill={bill} index={index} key={index} />
+          <Bill 
+            bill={bill}
+            index={index} 
+            bills={props.bills} 
+            setBills={props.setBills} 
+            key={index} />
         )
       })}
     </OverflowGuy>
