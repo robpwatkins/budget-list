@@ -9,11 +9,20 @@ const StyledDiv = styled.div`
 `;
 
 const Total = (props) => {
+  const calculateTotal = () => {
+    let theTotal;
+    if (props.bills.length > 1) {
+      theTotal = props.bills.reduce((a, b) => a + b);
+      if (theTotal.toString().split('').indexOf('.') !== -1) {
+        theTotal = theTotal.toFixed(2);
+      }
+    }
+    return theTotal;
+  }
+
   return (
     <StyledDiv>
-      <h3>
-        {props.bills.length > 1 && props.bills.reduce((a, b) => a + b).toFixed(2)}
-      </h3>
+      <h3>{calculateTotal()}</h3>
     </StyledDiv>
   )
 }
