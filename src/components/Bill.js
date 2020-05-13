@@ -13,6 +13,10 @@ const StyledDiv = styled.div`
 const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('heyoo');
+  }
 
   return (
     <StyledDiv 
@@ -21,10 +25,7 @@ const Bill = (props) => {
       onClick={() => setIsClicked(true)}
     >
       {isClicked ? (
-        <form onSubmit={event => {
-          event.preventDefault();
-          console.log('heyoo');
-        }}>
+        <form onSubmit={handleSubmit}>
           <Input type="text" placeholder={props.bill.toString()} />
         </form>
         ):(
