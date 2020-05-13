@@ -4,13 +4,13 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   display: flex;
   width: 100%;
-  height: 55px;
+  /* height: 55px; */
   justify-content: flex-start;
 `;
 
 const Total = (props) => {
   const calculateTotal = () => {
-    let theTotal;
+    let theTotal = 0;
     if (props.bills.length > 1) {
       theTotal = props.bills.reduce((a, b) => a + b);
       if (theTotal.toString().split('').indexOf('.') !== -1) {
