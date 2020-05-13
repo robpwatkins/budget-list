@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ClearIcon from '@material-ui/icons/Clear';
+import { Input, Button } from '@material-ui/core';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -12,13 +13,21 @@ const StyledDiv = styled.div`
 const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-  
+
   return (
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setIsClicked(true)}
     >
-      <p>{props.bill}</p>
+      {isClicked ? (
+        <form action="">
+          <Input type="text" placeholder={props.bill} />
+        </form>
+        ):(
+          <p>{props.bill}</p>
+        )
+      }
       {isHovered && (
         <ClearIcon 
           fontSize="small" 
