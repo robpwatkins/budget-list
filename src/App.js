@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
 `
 
 const App = () => {
-  const [bills, setBills] = useState([22]);
+  const [bills, setBills] = useState([]);
 
   return (
     <div className="App">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ClearIcon from '@material-ui/icons/Clear';
-import { Input, Button } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -13,9 +13,19 @@ const StyledDiv = styled.div`
 const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [input, setInput] = useState('');
+
+  const updateInput = (event) => {
+    setInput(event.target.value);
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
-    console.log('heyoo');
+    const newBills = props.bills;
+    newBills.splice(props.index, 1);
+    newBills.splice(props.index, 0, Number(input));
+    props.setBills([ ...newBills ]);
+    setIsClicked(false);
   }
 
   return (
@@ -26,7 +36,12 @@ const Bill = (props) => {
     >
       {isClicked ? (
         <form onSubmit={handleSubmit}>
-          <Input type="text" placeholder={props.bill.toString()} />
+          <Input 
+            type="text" 
+            placeholder={props.bill.toString()}
+            value={input}
+            onChange={updateInput}
+          />
         </form>
         ):(
           <p>{props.bill}</p>
