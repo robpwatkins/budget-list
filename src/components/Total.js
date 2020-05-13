@@ -12,7 +12,7 @@ const Total = (props) => {
   return (
     <StyledDiv>
       <h3>
-        {props.bills.length > 1 && props.bills.reduce((a, b) => a + b)}
+        {props.bills.length > 1 && props.bills.reduce((a, b) => a + b).toFixed(2)}
       </h3>
     </StyledDiv>
   )

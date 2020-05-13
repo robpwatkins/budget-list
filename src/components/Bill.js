@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 `
 
 const Bill = (props) => {
-  const [isHovered, setIsHovered] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
