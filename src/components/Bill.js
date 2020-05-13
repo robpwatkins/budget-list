@@ -21,8 +21,11 @@ const Bill = (props) => {
       onClick={() => setIsClicked(true)}
     >
       {isClicked ? (
-        <form action="">
-          <Input type="text" placeholder={props.bill} />
+        <form onSubmit={event => {
+          event.preventDefault();
+          console.log('heyoo');
+        }}>
+          <Input type="text" placeholder={props.bill.toString()} />
         </form>
         ):(
           <p>{props.bill}</p>
