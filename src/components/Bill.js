@@ -8,14 +8,14 @@ const StyledDiv = styled.div`
   align-items: center;
 `
 
-const DeleteButton = styled.button`
-  width: 12px;
-  margin: 5px;
-  padding-bottom: 2px;
+const DeleteButton = styled.div`
+  /* width: 12px; */
+  /* margin: 5px; */
+  /* padding-bottom: 2px; */
 `
 
 const Bill = (props) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
 
   return (
     <StyledDiv 
