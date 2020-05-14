@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 import { TextField } from '@material-ui/core';
+import { useOnClickOutside } from '../hooks/outsideClickAlerter';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -35,10 +36,14 @@ const inputProps = {
 };
 
 const Bill = (props) => {
+  const ref = useRef();
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [input, setInput] = useState('');
   const [inputIsChanged, setInputIsChanged] = useState(false);
+
+  useOnClickOutside(ref, () => setIsClicked(false));
+
   const classes = useStyles();
 
   const updateInput = (event) => {
@@ -68,6 +73,7 @@ const Bill = (props) => {
           setInput(props.bill);
           setIsClicked(true)
         }}
+        ref={ref}
       >
         {isClicked ? (
           <form onSubmit={handleSubmit}>
