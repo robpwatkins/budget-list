@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 import { TextField } from '@material-ui/core';
-import { useOnClickOutside } from '../hooks/outsideClickAlerter';
+import { useOutsideClickAlerter } from '../hooks/outsideClickAlerter';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const StyledDiv = styled.div`
 const BillDiv = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 100%;
+  width: 88%;
 `;
 
 const useStyles = makeStyles({
@@ -42,7 +42,7 @@ const Bill = (props) => {
   const [input, setInput] = useState('');
   const [inputIsChanged, setInputIsChanged] = useState(false);
 
-  useOnClickOutside(ref, () => setIsClicked(false));
+  useOutsideClickAlerter(ref, () => setIsClicked(false));
 
   const classes = useStyles();
 
@@ -71,7 +71,8 @@ const Bill = (props) => {
       <BillDiv
         onClick={() => {
           setInput(props.bill);
-          setIsClicked(true)
+          setIsClicked(true);
+          setIsHovered(false);
         }}
         ref={ref}
       >
