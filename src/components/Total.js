@@ -5,6 +5,7 @@ const StyledDiv = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-start;
+  margin-top: 7px;
 `;
 
 const Total = (props) => {
