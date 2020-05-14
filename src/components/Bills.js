@@ -6,6 +6,7 @@ const OverflowGuy = styled.div`
   display: flex;
   flex-direction: column-reverse;
   overflow: scroll;
+  padding-bottom: 10px;
 `
 
 const Bills = (props) => {

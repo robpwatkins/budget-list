@@ -10,6 +10,11 @@ const StyledDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 `
+const BillDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+`;
 
 const useStyles = makeStyles({
   root: {
@@ -50,26 +55,29 @@ const Bill = (props) => {
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => {
-        setInput(props.bill);
-        setIsClicked(true)
-      }}
-    >
-      {isClicked ? (
-        <form onSubmit={handleSubmit}>
-          <TextField
-            InputProps={{ classes: classes }} 
-            type="text" 
-            placeholder={props.bill.toString()}
-            value={input}
-            onChange={updateInput}
-            autoFocus={true}
-          />
-        </form>
-        ):(
-          <p>{props.bill}</p>
-        )
-      }
+      >
+      <BillDiv
+        onClick={() => {
+          setInput(props.bill);
+          setIsClicked(true)
+        }}
+      >
+        {isClicked ? (
+          <form onSubmit={handleSubmit}>
+            <TextField
+              InputProps={{ classes: classes }} 
+              type="text" 
+              placeholder={props.bill.toString()}
+              value={input}
+              onChange={updateInput}
+              autoFocus={true}
+            />
+          </form>
+          ):(
+            <p>{props.bill}</p>
+          )
+        }
+      </BillDiv>
       {isHovered && (
         <ClearIcon 
           fontSize="small" 
