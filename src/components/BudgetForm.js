@@ -36,6 +36,7 @@ const BudgetForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (input === '') return;
     setInput(input);
     props.setBills([Number(input), ...props.bills])
     setInput('');
