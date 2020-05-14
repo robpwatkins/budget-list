@@ -46,7 +46,7 @@ const Bill = (props) => {
 
   const classes = useStyles();
 
-  const updateInput = (event) => {
+  const updateInput = event => {
     setInput(event.target.value);
     setInputIsChanged(true)
   }

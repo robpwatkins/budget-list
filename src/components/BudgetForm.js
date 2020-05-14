@@ -51,14 +51,14 @@ const BudgetForm = (props) => {
           value={input}
           autoFocus={true}
           type="number"
-          step="any"
         >
         </TextField>
         <Button 
           type="submit"
           variant="contained"
           style={buttonStyle}
-          >PUT IT!
+        >
+          PUT IT!
         </Button>
       </form>
     </div>
