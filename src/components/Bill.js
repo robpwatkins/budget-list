@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 import { TextField } from '@material-ui/core';
-import { useOutsideClickAlert } from '../hooks/outsideClickAlert';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -40,7 +39,6 @@ const Bill = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   const [input, setInput] = useState('');
   const [inputIsChanged, setInputIsChanged] = useState(false);
-  const {outsideClicked, setOutsideClicked, ref} = useOutsideClickAlert(false);
   const classes = useStyles();
 
   const updateInput = (event) => {
@@ -60,11 +58,6 @@ const Bill = (props) => {
     setIsHovered(false);
   }
 
-  if (outsideClicked) {
-    // setIsClicked(false);
-    console.log('heyoo');
-  }
-
   return (
     <StyledDiv 
       onMouseEnter={() => setIsHovered(true)}
@@ -75,7 +68,6 @@ const Bill = (props) => {
           setInput(props.bill);
           setIsClicked(true)
         }}
-        ref={ref}
       >
         {isClicked ? (
           <form onSubmit={handleSubmit}>
