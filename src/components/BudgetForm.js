@@ -4,14 +4,21 @@ import { TextField, Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
+    "& input::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
+      display: "none"
+    },
     "&:after": {
       borderBottom: "1px solid #212121"
     }
   },
   input: {
     padding: "13px 0 7px 0" 
-  }
+  },
 });
+
+const inputProps = {
+  step: 0.01
+};
 
 const buttonStyle = {
   height: "100%",
@@ -38,14 +45,14 @@ const BudgetForm = (props) => {
     <div>
       <form action="" onSubmit={handleSubmit} autoComplete="off">
         <TextField
-          InputProps={{ classes: classes }}
+          InputProps={{ classes: classes, inputProps }}
           onChange={updateInput}
           placeholder={props.bills.length === 0 ? 'put a bill' : 'put another bill'}
           value={input}
-          name="username"
           autoFocus={true}
-          defaultValue="number"
-          >
+          type="number"
+          step="any"
+        >
         </TextField>
         <Button 
           type="submit"
