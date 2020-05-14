@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     }
   },
   input: {
-    padding: "10px 0 7px 0" 
+    padding: "13px 0 7px 0" 
   }
 });
 

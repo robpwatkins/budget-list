@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
-import { Input } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -10,11 +11,23 @@ const StyledDiv = styled.div`
   align-items: center;
 `
 
+const useStyles = makeStyles({
+  root: {
+    "&:after": {
+      borderBottom: "1px solid #212121"
+    }
+  },
+  input: {
+    padding: "10px 0 7px 0" 
+  }
+});
+
 const Bill = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [input, setInput] = useState('');
   const [inputIsChanged, setInputIsChanged] = useState(false);
+  const classes = useStyles();
 
   const updateInput = (event) => {
     setInput(event.target.value);
@@ -44,7 +57,8 @@ const Bill = (props) => {
     >
       {isClicked ? (
         <form onSubmit={handleSubmit}>
-          <Input 
+          <TextField
+            InputProps={{ classes: classes }} 
             type="text" 
             placeholder={props.bill.toString()}
             value={input}
